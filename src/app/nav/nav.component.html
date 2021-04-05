@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <div class="md-form">
+      <input
+        class="form-control form-control-sm ml-3 w-75"
+        type="search"
+        [(ngModel)]="searchText"
+        placeholder="Search text"
+      />
+    </div>
+    <mat-nav-list>
+      <ng-container *ngFor="let item of sidNavData | navfilter: searchText">
+        <a
+          *ngIf="metadata.user_type === 'admin' || item.authority === 'general'"
+          mat-list-item
+          [routerLink]="item.link"
+          [matTooltip]="item.description"
+          >{{ item.text }}</a
+        >
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>cdk-sample</span>
+      <span class="example-spacer"></span>
+      <app-auth-button></app-auth-button>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
