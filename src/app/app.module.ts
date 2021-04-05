@@ -35,6 +35,8 @@ import { UserComponent } from './user/user.component';
 import { AuthMetaService } from './service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './nav/filter.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,13 @@ import { FilterPipe } from './nav/filter.pipe';
         ]
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     DataService,
