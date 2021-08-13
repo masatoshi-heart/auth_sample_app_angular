@@ -19,7 +19,9 @@
     <mat-nav-list>
       <ng-container *ngFor="let item of sidNavData | navfilter: searchText">
         <a
-          *ngIf="metadata.user_type === 'admin' || item.authority === 'general'"
+          *ngIf="
+            (authMetaServis.isAdmin | async) || item.authority === 'general'
+          "
           mat-list-item
           [routerLink]="item.link"
           [matTooltip]="item.description"

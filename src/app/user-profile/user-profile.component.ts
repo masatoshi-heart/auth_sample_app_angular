@@ -12,6 +12,5 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class UserProfileComponent {
   constructor(public auth: AuthService) {
-    console.log(auth.user$);
   }
 }

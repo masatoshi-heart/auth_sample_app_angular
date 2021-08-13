@@ -1,0 +1,14 @@
+<div class="text-right mb-3">
+  <buton mat-dialog-close mat-button>
+    <mat-icon class="text-secondary clear-icon">clear</mat-icon>
+  </buton>
+</div>
+<mat-dialog-content>
+  <p class="text-break">
+    {{ data.dialogMessage }}
+  </p>
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button (click)="closeDialog(true)">OK</button>
+  <button mat-raised-button mat-dialog-close>キャンセル</button>
+</div>

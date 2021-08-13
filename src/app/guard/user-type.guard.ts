@@ -14,8 +14,7 @@ export class UserTypeGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.authMetaService.getAuth();
-    if (this.authMetaService.metadata.user_type === 'admin'){
+    if (this.authMetaService.isAdmin.subscribe(result => {return result})){
       return true;
     } else {
       this.router.navigate(['/dashboard']);

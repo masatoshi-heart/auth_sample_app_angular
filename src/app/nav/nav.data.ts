@@ -10,7 +10,7 @@ export const sidNavItems: SideNavItems[] = [
     text: 'Top',
     link: '',
     authority: 'general',
-    description: "トップ画面に移動<br>あああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+    description: "トップ画面に移動"
   },
   {
     text: 'To Do',
@@ -33,6 +33,12 @@ export const sidNavItems: SideNavItems[] = [
   {
     text: 'User',
     link: 'user',
+    authority: 'general',
+    description: "Userデータの表示"
+  },
+  {
+    text: 'UIテスト',
+    link: 'sitem',
     authority: 'general',
     description: "Userデータの表示"
   },

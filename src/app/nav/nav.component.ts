@@ -36,13 +36,8 @@ export class NavComponent implements OnInit{
 
   ngOnInit(): void {
     // メニューの表示・非表示の切り替え
-    this.authMetaServis.getAuth();
+    this.authMetaServis.fetchMetadata();
   }
-  // メニューの表示・非表示の切り替え
-  get metadata(): Meta{
-    return this.authMetaServis.metadata;
-  };
-
 
   // ドラッグ&ドロップの記述
   dropped($event: CdkDragDrop<string>) {

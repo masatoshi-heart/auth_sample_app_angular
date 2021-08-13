@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('tabIndex') tabIndex: string;
+  constructor(private router: Router) {
+    this.tabIndex = '0';
+   }
 
   ngOnInit(): void {
+  }
+
+  onClick(): void {
+    this.router.navigate(['/dashdoard']);
   }
 
 }

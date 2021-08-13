@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -38,6 +38,21 @@ import { FilterPipe } from './nav/filter.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
+import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
+import { myCustomTooltipDefaults } from './custom-tooltip-defaults';
+import { ScreenItemComponent } from './screen-item/screen-item.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { DialogButtonComponent } from './dialog-button/dialog-button.component';
+import { HotkeyService } from './service/hotkey.service';
+import { F1ButtonComponent } from './f1-button/f1-button.component';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -52,6 +67,10 @@ import { RouterModule } from '@angular/router';
     UserMetadataComponent,
     UserComponent,
     FilterPipe,
+    ScreenItemComponent,
+    ConfirmDialogComponent,
+    DialogButtonComponent,
+    F1ButtonComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -61,6 +80,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -73,19 +93,20 @@ import { RouterModule } from '@angular/router';
     NgbModule,
     WjChartModule,
     WjChartAnimationModule,
+    PerfectScrollbarModule,
     AuthModule.forRoot({
-      domain: 'dev-t-6wv33g.jp.auth0.com',
-      clientId: 'd6iXdba84HnX7yvw6JpMJpWrohWHxrNZ',
-      audience: 'https://dev-t-6wv33g.jp.auth0.com/api/v2/',
+      domain: 'testbass1.jp.auth0.com',
+      clientId: 'uqjl1fxchpv5oTjGZQR9ZkuqJ6ledJom',
+      audience: 'https://testbass1.jp.auth0.com/api/v2/',
       scope: 'read:current_user',
       httpInterceptor: {
         allowedList: [
           {
             // Match any request that starts 'https://dev-t-6wv33g.jp.auth0.com/api/v2/' (note the asterisk)
-            uri: 'https://dev-t-6wv33g.jp.auth0.com/api/v2/*',
+            uri: 'https://testbass1.jp.auth0.com/api/v2/*',
             tokenOptions: {
               // The attached token should target this audience
-              audience: 'https://dev-t-6wv33g.jp.auth0.com/api/v2/',
+              audience: 'https://testbass1.jp.auth0.com/api/v2/',
               // The attached token should have these scopes
               scope: 'read:current_user'
             }
@@ -105,7 +126,10 @@ import { RouterModule } from '@angular/router';
   providers: [
     DataService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
-    AuthMetaService
+    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults },
+    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG},
+    AuthMetaService,
+    HotkeyService
   ],
   bootstrap: [AppComponent]
 })
