@@ -49,6 +49,10 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { DialogButtonComponent } from './dialog-button/dialog-button.component';
 import { HotkeyService } from './service/hotkey.service';
 import { F1ButtonComponent } from './f1-button/f1-button.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { ConfirmDialogContentComponent } from './confirm-dialog-content/confirm-dialog-content.component';
+import { OkDialogFrameComponent } from './ok-dialog-frame/ok-dialog-frame.component';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -71,6 +75,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ConfirmDialogComponent,
     DialogButtonComponent,
     F1ButtonComponent,
+    ConfirmDialogContentComponent,
+    OkDialogFrameComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -94,6 +100,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     WjChartModule,
     WjChartAnimationModule,
     PerfectScrollbarModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
     AuthModule.forRoot({
       domain: 'testbass1.jp.auth0.com',
       clientId: 'uqjl1fxchpv5oTjGZQR9ZkuqJ6ledJom',

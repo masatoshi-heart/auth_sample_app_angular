@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-import { confirmDialogMessage } from '../confirm-dialog/data/dialog-message';
+import { ConfirmDialogContentComponent } from '../confirm-dialog-content/confirm-dialog-content.component';
 import { DialogService } from '../service/dialog.service';
 import { HotkeyService } from '../service/hotkey.service';
 
@@ -11,9 +10,9 @@ import { HotkeyService } from '../service/hotkey.service';
 })
 export class F1ButtonComponent implements OnInit {
 
-  @Input() doSomething: any;
+  @Input() closedMethod?: any | undefined;
   @Input() message: string;
-  @Input() fKey: string;
+  @Input() functionKey: string;
 
   constructor(
     private dialog: DialogService,
@@ -21,12 +20,12 @@ export class F1ButtonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.hotkey.addShortcut({keys: this.fKey}).subscribe(() => {
+    this.hotkey.addShortcut({keys: this.functionKey}).subscribe(() => {
       this.confirmDialog();
     });
   }
 
   confirmDialog(): void{
-    this.dialog.dialogS(ConfirmDialogComponent, this.doSomething, this.message);
+    this.dialog.callDialogS(ConfirmDialogContentComponent, this.closedMethod, this.message);
   }
 }

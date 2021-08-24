@@ -1,7 +1,4 @@
-import { HostListener } from '@angular/core';
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { Component, OnInit } from '@angular/core';
 import { confirmDialogMessage } from '../confirm-dialog/data/dialog-message';
 
 @Component({

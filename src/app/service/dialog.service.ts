@@ -11,51 +11,57 @@ export class DialogService {
 
   callDialogS(
     dialogContent: any,
-    afterColsedMethod: (par?: any) => void,
-    data?: any
+    afterColsedMethod?: (par?: any) => void,
+    message?: any
   ): void {
     const dialogRef = this.dialog.open(dialogContent, {
       width: '420px',
-      data: { data },
+      data: { message },
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        afterColsedMethod();
+        if (afterColsedMethod !== undefined){
+          afterColsedMethod();
+        }
       }
     });
   }
 
   callDialogM(
     dialogContent: any,
-    afterColsedMethod: (par?: any) => void,
-    data?: any
+    afterColsedMethod?: (par?: any) => void,
+    message?: any
   ): void {
     const dialogRef = this.dialog.open(dialogContent, {
       width: '840px',
-      data: { data },
+      data: { message },
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        afterColsedMethod();
+        if (afterColsedMethod !== undefined){
+          afterColsedMethod();
+        }
       }
     });
   }
 
   callDialogL(
     dialogContent: any,
-    afterColsedMethod: (par?: any) => void,
-    data?: any
+    afterColsedMethod?: (par?: any) => void,
+    message?: any
   ): void {
     const dialogRef = this.dialog.open(dialogContent, {
       width: '1024px',
-      data: { data },
+      data: { message },
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        afterColsedMethod();
+        if (afterColsedMethod !== undefined){
+          afterColsedMethod();
+        }
       }
     });
   }
