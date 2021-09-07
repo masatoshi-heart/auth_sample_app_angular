@@ -41,7 +41,7 @@ import { RouterModule } from '@angular/router';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
 import { myCustomTooltipDefaults } from './custom-tooltip-defaults';
 import { ScreenItemComponent } from './screen-item/screen-item.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -52,7 +52,6 @@ import { F1ButtonComponent } from './f1-button/f1-button.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { ConfirmDialogContentComponent } from './confirm-dialog-content/confirm-dialog-content.component';
 import { OkDialogFrameComponent } from './ok-dialog-frame/ok-dialog-frame.component';
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -102,8 +101,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AuthModule.forRoot({
-      domain: 'testbass1.jp.auth0.com',
-      clientId: 'uqjl1fxchpv5oTjGZQR9ZkuqJ6ledJom',
+      domain: environment.domain,
+      clientId: environment.clientID,
       audience: 'https://testbass1.jp.auth0.com/api/v2/',
       scope: 'read:current_user',
       httpInterceptor: {
