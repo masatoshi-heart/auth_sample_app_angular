@@ -78,6 +78,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     OkDialogFrameComponent,
   ],
   imports: [
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -10,13 +10,14 @@ import { UserTypeGuard } from './guard/user-type.guard';
 import { ScreenItemComponent } from './screen-item/screen-item.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashdoard', pathMatch: 'full' },
+  {path: '', redirectTo: '/dashdoard', pathMatch: 'full'},
   {path: 'dd', component: DragDropComponent, canActivate: [AuthGuard] },
   {path: 'dashdoard', component: DashboardComponent, canActivate: [AuthGuard] },
   {path: 'pibot', component: PibotComponent, canActivate: [AuthGuard, UserTypeGuard] },
   {path: 'chart', component: FlexChartComponent, canActivate: [AuthGuard, UserTypeGuard] },
   {path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   {path: 'sitem', component: ScreenItemComponent, canActivate: [AuthGuard] },
+  {path: 'mlic', loadChildren: () => import('./mlic/mlic.module').then(m => m.MlicModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

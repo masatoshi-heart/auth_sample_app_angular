@@ -1,0 +1,14 @@
+<button class="btn btn-primary" (click)="storeClear()">クリア</button>
+
+<ng-container *ngFor="let mlic of mlics$ | async">
+  <div class="m-2">
+    <ul>
+      <li><span>cpid: </span>{{ mlic.cpid }}</li>
+      <li><span>svid: </span>{{ mlic.svid }}</li>
+      <li><span>svnm: </span>{{ mlic.svnm }}</li>
+      <li><span>stat: </span>{{ mlic.stat }}</li>
+      <li><span>lisu: </span>{{ mlic.lisu }}</li>
+      <li><span>exdt: </span>{{ mlic.exdt | date }}</li>
+    </ul>
+  </div>
+</ng-container>

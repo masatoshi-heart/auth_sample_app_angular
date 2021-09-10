@@ -1,5 +1,5 @@
 export interface Mlic {
-  id: number;
+  id: string;
   cpid: string;
   svid: string;
   svnm: string;

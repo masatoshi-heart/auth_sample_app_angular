@@ -42,4 +42,10 @@ export const sidNavItems: SideNavItems[] = [
     authority: 'general',
     description: "Userデータの表示"
   },
+  {
+    text: 'MLIC',
+    link: 'mlic',
+    authority: 'general',
+    description: "MLICの表示"
+  },
 ]
