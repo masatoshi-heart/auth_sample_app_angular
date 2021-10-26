@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "flex-chart.component.scss"
+    ],
+    "names": [],
+    "file": "flex-chart.component.css"
+}

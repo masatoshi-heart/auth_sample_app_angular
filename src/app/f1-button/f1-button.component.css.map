@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,IAAI,EAAE,IAAI;CACX;;AAED,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,IAAI,EAAE,IAAI;CACX",
+    "sources": [
+        "f1-button.component.scss"
+    ],
+    "names": [],
+    "file": "f1-button.component.css"
+}

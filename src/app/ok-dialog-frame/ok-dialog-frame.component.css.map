@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,SAAS,EAAE,IAAI;CAChB",
+    "sources": [
+        "ok-dialog-frame.component.scss"
+    ],
+    "names": [],
+    "file": "ok-dialog-frame.component.css"
+}

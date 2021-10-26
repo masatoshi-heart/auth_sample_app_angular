@@ -1,0 +1,9 @@
+.perfect-scrollbar-example {
+  position: relative;
+  max-height: 250px;
+}
+
+.btn-color {
+  background-color: theme-color("primary");
+}
+/*# sourceMappingURL=screen-item.component.css.map */

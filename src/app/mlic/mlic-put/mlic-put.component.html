@@ -1,0 +1,10 @@
+<ng-container *ngIf="isLoading$ | async; else mlicForms">
+  <h2>Now Loading...</h2>
+</ng-container>
+
+<ng-template #mlicForms>
+  <form [formGroup]="mlicForm" (ngSubmit)="onSubmit()">
+    <app-mlic-form [mlicForm]="mlicForm"></app-mlic-form>
+    <button class="btn btn-primary" type="submit">Edit</button>
+  </form>
+</ng-template>

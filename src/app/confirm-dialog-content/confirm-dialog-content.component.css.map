@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "confirm-dialog-content.component.scss"
+    ],
+    "names": [],
+    "file": "confirm-dialog-content.component.css"
+}

@@ -1,0 +1,54 @@
+<ng-container *ngIf="isLoading | async; else mlicShowTable">
+  <h2>Now Loading...</h2>
+</ng-container>
+
+<ng-template #mlicShowTable>
+  <ng-container *ngIf="mlic$ | async as mlic">
+    <table class="table table-bordered m-2">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Key</th>
+          <th scope="col">値</th>
+        </tr>
+      </thead>
+      <tr>
+        <th scope="row">ID</th>
+        <td>{{ mlic.id }}</td>
+      </tr>
+      <tr>
+        <th scope="row">CPID</th>
+        <td>{{ mlic.cpid }}</td>
+      </tr>
+      <tr>
+        <th scope="row">SVID</th>
+        <td>{{ mlic.svid }}</td>
+      </tr>
+      <tr>
+        <th scope="row">SVNM</th>
+        <td>{{ mlic.svnm }}</td>
+      </tr>
+      <tr>
+        <th scope="row">STAT</th>
+        <td>{{ mlic.stat }}</td>
+      </tr>
+      <tr>
+        <th scope="row">LISU</th>
+        <td>{{ mlic.lisu }}</td>
+      </tr>
+      <tr>
+        <th scope="row">EXDT</th>
+        <td>{{ mlic.exdt | date }}</td>
+      </tr>
+    </table>
+    <a
+      mat-raised-button
+      color="primary"
+      routerLink="/mlic/edit/{{ mlic.id }}"
+      class="m-1"
+      >Edit</a
+    >
+    <button mat-raised-button color="warn" (click)="deleteMlic()">
+      Delete
+    </button>
+  </ng-container>
+</ng-template>

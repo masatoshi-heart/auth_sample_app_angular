@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,0BAA0B,CAAC;EACzB,QAAQ,EAAE,QAAQ;EAClB,UAAU,EAAE,KAAK;CAClB;;AAED,AAAA,UAAU,CAAC;EACT,gBAAgB,EAAE,sBAAsB;CACzC",
+    "sources": [
+        "screen-item.component.scss"
+    ],
+    "names": [],
+    "file": "screen-item.component.css"
+}

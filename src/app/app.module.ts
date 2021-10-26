@@ -52,6 +52,8 @@ import { F1ButtonComponent } from './f1-button/f1-button.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { ConfirmDialogContentComponent } from './confirm-dialog-content/confirm-dialog-content.component';
 import { OkDialogFrameComponent } from './ok-dialog-frame/ok-dialog-frame.component';
+import { MatTableModule } from '@angular/material/table';
+import { AlertComponent } from './alert/alert.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -76,6 +78,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     F1ButtonComponent,
     ConfirmDialogContentComponent,
     OkDialogFrameComponent,
+    AlertComponent,
   ],
   imports: [
     environment.production ? [] : AkitaNgDevtools.forRoot(),
@@ -94,6 +97,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatCardModule,
     MatMenuModule,
     MatTooltipModule,
+    MatTableModule,
     DragDropModule,
     WjOlapModule,
     NgbModule,
